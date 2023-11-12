@@ -131,7 +131,7 @@ QBCore.Commands.Add('cooldown', "Starts a cooldown timer", { { name = 'minutes',
     QBCore.Functions.Notify("This command is only for Police.", "error")
     return
   end
-end, 'admin')
+end, false)
 
 
 RegisterCommand("cancelcooldown", function(source)
@@ -157,17 +157,17 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if ishold == false then
-            DrawText2("~p~City RolePlay ~w~ 🐱‍👤 ~b~ Priority Cooldown: ~p~is Off ")
+            DrawText2("~p~City RolePlay ~w~ 🐱 ~w~ Priority Cooldown : ~g~is Off ")
         elseif ishold == true then
             local minutes = math.floor(cooldown / 60)
             local seconds = cooldown % 60
             if seconds <= 0 then
-                DrawText2("~p~City RolePlay ~w~ 🐱‍👤 ~b~ Priority Cooldown: ~g~is Off  ")
+                DrawText2("~p~City RolePlay ~w~ 🐱 ~w~ Priority Cooldown : ~g~is Off  ")
             else
-                DrawText2(" ~p~City RolePlay  ~w~ | Priority Cooldown timer: ~r~" .. string.format("~r~%02d MIN %02d SEC", minutes, seconds))
+                DrawText2(" ~p~City RolePlay  ~w~ 🐱 ~w~ Priority Cooldown timer : ~r~" .. string.format("~r~%02d MIN %02d SEC", minutes, seconds))
             end
         else
-            DrawText2(" ~p~City RolePlay  ~w~ 🐱‍👤 ~b~ Priority Cooldown timer: ~r~offline ")
+            DrawText2(" ~p~City RolePlay  ~w~ 🐱 ~w~ Priority Cooldown timer : ~y~offline ")
         end
     end
 end)
@@ -175,12 +175,12 @@ end)
 function DrawText2(text)
     SetTextFont(0)
     SetTextProportional(1)
-    SetTextScale(0.0, 0.30)
+    SetTextScale(0.0, 0.40)
     SetTextDropshadow(1, 0, 0, 0, 255)
     SetTextEdge(1, 0, 0, 0, 255)
     SetTextDropShadow()
     SetTextOutline()
     SetTextEntry("STRING")
     AddTextComponentString(text)
-    DrawText(0.60, 0.97)
+    DrawText(0.58, 0.95)
 end
